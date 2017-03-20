@@ -21,7 +21,7 @@ public:
     void set_magnitude(double size) {magnitude_ = size;}
 
     // member functions:
-    Force operator+(Force, Force);
+    Force operator+(Force);
     std::vector<double> to_vector();
 
 
