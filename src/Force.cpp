@@ -4,7 +4,19 @@
 
 // force constructor
 Force::Force(std::vector<double> vector1, double size)
-    : direction_(vector1), magnitude_(size) {}
+    : magnitude_(size)
+{
+    double length = norm(vector1);
+
+    if (length != 1){
+        for (double& x: vector1){
+            x = x/length;
+        }
+    }
+
+    direction_ = vector1;
+
+}
 
 
 // represents a force a single vector
@@ -19,18 +31,19 @@ std::vector<double> Force::to_vector() {
 
 
 // overloads the addition operator to add forces
-Force operator+(Force f2)
+Force operator+(Force f1, Force f2)
 {
+    if (f1.direction().empty() || f2.direction().empty()) return Force();
     // checks if the force vectors have the same dimensionality
-    if (direction_.size() != f2.direction().size()) throw std::length_error("Vectors must be of same size to add");
+    if (f1.direction().size() != f2.direction().size()) throw std::length_error("Vectors must be of same size to add");
 
 
     // adds the unit vectors
     std::vector<double> vector1;
-    for(int x = 0; x < f2.direction().size(); x++) vector1.push_back(this->direction()[x] + f2.direction()[x]);
+    for(int x = 0; x < f2.direction().size(); x++) vector1.push_back(f1.direction()[x] + f2.direction()[x]);
 
     // adds the magnitudes
-    double temp = std::sqrt(magnitude()*magnitude() + f2.magnitude()*f2.magnitude());
+    double temp = std::sqrt(f1.magnitude()* f1.magnitude() + f2.magnitude()*f2.magnitude());
 
     // creates and sets new Force to return
     Force ftr;

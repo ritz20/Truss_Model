@@ -1,4 +1,4 @@
-#include <vector>
+#include "Force.h"
 
 // members of a truss
 class member
@@ -6,6 +6,7 @@ class member
 
     // constructors
     member();
+
 
     // setters
 
@@ -24,6 +25,7 @@ private:
 
     double length_;
     std::vector<double> size_;
+    Force exersion_;
 
     // always assume tension
     bool tension_ = true;

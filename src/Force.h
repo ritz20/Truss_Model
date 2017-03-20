@@ -8,9 +8,9 @@ class Force
 public:
 
     // constructors:
-    Force::Force() : magnitude_(0){}
+    Force() : magnitude_(0), direction_(){}
 
-    Force::Force(std::vector<double>, double);
+    Force(std::vector<double>, double);
 
     // getters:
     const std::vector<double> direction() {return direction_;}
