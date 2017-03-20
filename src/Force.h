@@ -1,6 +1,7 @@
 #include <vector>
 #include <stdexcept>
 #include <cmath>
+#include <iostream>
 
 class Force
 {
@@ -23,6 +24,7 @@ public:
     // member functions:
     Force operator+(Force);
     std::vector<double> to_vector();
+    void print();
 
 
 
