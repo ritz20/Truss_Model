@@ -4,6 +4,10 @@
 
 int main()
 {
+    Force f ({-2.4, -0}, -4);
+    f.print();
+    to_cout(f.direction());
+
     Force f1({3, 4}, 5);
     f1.set_magnitude(5);
     f1.set_direction({3, 4});

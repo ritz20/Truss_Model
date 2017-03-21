@@ -8,7 +8,7 @@ double norm(std::vector<T1> vector1)
 {
     double temp = 0;
 
-    for(T1 x: vector1) temp += std::abs(x*x);
+    for(T1 x: vector1) temp += x*x;
 
     return std::sqrt(temp);
 }
@@ -18,6 +18,8 @@ template <typename T1>
 void normalize(std::vector<T1>& vector1)
 {
     double length = norm(vector1);
+    if (length == 0) return;
+
     for(T1& x: vector1) x /= length;
 }
 
@@ -41,7 +43,6 @@ void to_cout(std::vector<T1> vector1)
         std::cout << vector1[x] << ", ";
     }
 }
-
 
 // overloads plus operator for element-wise vector addition
 template <typename T1>
