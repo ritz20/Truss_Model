@@ -1,7 +1,12 @@
-
 #include "node.h"
 
 //// representation of a 2D truss
+
+/*
+ * reresented as a data structure that points to a node that points to a member that points to a node and so on
+ * need to include 2 supports some how
+ *
+ */
 class truss
 {
 public:

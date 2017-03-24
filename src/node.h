@@ -1,6 +1,4 @@
-
-#include "member.h"
-
+#include "Force.h"
 // ideas:
 /*
  * Easy method of sections option:
@@ -17,8 +15,7 @@ class node
 public:
     // constructors
     node(std::vector<double>);
-    node(std::vector<double>, std::vector<member>);
-    node(std::vector<double>, std::vector<member>, std::vector<Force>);
+    node(std::vector<double>, std::vector<Force>);
 
     // setters
 
@@ -36,12 +33,8 @@ public:
 
 private:
 
-    // should I preallocate memory for the proper size of just use push_back?
     std::vector<double> location_;
-    // std::vector<member::member*> members_;
     std::vector<Force> external_loads_;
-    std::vector<member> members_;
-
 
 };
 

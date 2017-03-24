@@ -4,13 +4,11 @@
 
 #include "node.h"
 
-
+// constructors
 node::node(std::vector<double> spot)
         : location_(spot){}
 
-node::node(std::vector<double> spot, std::vector<member> members)
-        : location_(spot), members_(members){}
+node::node(std::vector<double> spot, std::vector<Force> loads)
+        : location_(spot), external_loads_(loads) {}
 
-node::node(std::vector<double> spot, std::vector<member> members, std::vector<Force> e_loads)
-        : location_(spot), members_(members), external_loads_(e_loads){}
 
